@@ -9,10 +9,10 @@ Exploring US Bikeshare Data
 Using publicly avaibable bikeshare data, a script was created using Python, allowing to filter for year, month and day to break down the data.
 
 ### Files used
-bikeshare.py
-chicago.csv
-new_york_city.csv
-washington.csv
+* bikeshare.py
+* chicago.csv
+* new_york_city.csv
+* washington.csv
 
 ### Credits
 This project was created within the course Introduction to Data Science, by [Udacity](https://udacity.com)
