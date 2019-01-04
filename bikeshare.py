@@ -172,12 +172,12 @@ def main():
         trip_duration_stats(df)
         user_stats(df, city)
 
-        show_raw_data = input('\nWould you like to see raw data? Enter yes or no.\n')
+        show_raw_data = input('\nWould you like to see the raw data? Please enter yes or no.\n')
         raw_data_loc = 0
         while show_raw_data.lower() == 'yes':
             print(df.iloc[raw_data_loc:raw_data_loc + 5])
             raw_data_loc += 5
-            show_raw_data = input('\nWould you like to see more raw data? Enter yes or no.\n')
+            show_raw_data = input('\nWould you like to see more raw data? Please enter yes or no.\n')
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
