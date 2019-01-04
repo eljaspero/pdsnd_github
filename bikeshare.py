@@ -110,17 +110,17 @@ def station_stats(df):
 
     # TO DO: display most commonly used start station
     popular_start_station = df['Start Station'].mode()[0]
-    print('\nThe most common start station is {}.\n'.format(popular_start_station))    
+    print('\nThe most common start station is {}.\n'.format(popular_start_station))
 
     # TO DO: display most commonly used end station
     popular_end_station = df['End Station'].mode()[0]
-    print('\nThe most common end station is {}.\n'.format(popular_end_station))    
+    print('\nThe most common end station is {}.\n'.format(popular_end_station))
 
     # TO DO: display most frequent combination of start station and end station trip
     df['start_stop_combination'] = "Start Station: " + df['Start Station'] + ", End Station: " + df['End Station']
     popular_station_combination = df['start_stop_combination'].mode()[0]
-    print('\nThe most common station combination is {}.\n'.format(popular_station_combination)) 
-    
+    print('\nThe most common station combination is {}.\n'.format(popular_station_combination))
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -133,11 +133,11 @@ def trip_duration_stats(df):
 
     # TO DO: display total travel time
     tot_trip_duration = df['Trip Duration'].sum()
-    print('\nThe total travel time in minutes is {}.\n'.format(tot_trip_duration)) 
+    print('\nThe total travel time in minutes is {}.\n'.format(tot_trip_duration))
 
     # TO DO: display mean travel time
     avg_trip_duration = df['Trip Duration'].mean()
-    print('\nThe average travel time in minutes is {}.\n'.format(avg_trip_duration)) 
+    print('\nThe average travel time in minutes is {}.\n'.format(avg_trip_duration))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -153,23 +153,24 @@ def user_stats(df, city):
     user_types = df['User Type'].value_counts()
     print('\nCounts of user types:\n')
     print(user_types)
-    
+
+    # Washington File does not contain data for Gender and Birth Year, so steps below only should run if not Washington
     if city != "washington":
         # TO DO: Display counts of gender
         gender_types = df['Gender'].value_counts()
         print('\nCounts of gender types:\n')
         print(gender_types)
-    
+
 
         # TO DO: Display earliest, most recent, and most common year of birth
         earliest_birth_year = df['Birth Year'].min()
-        print('\nThe earliest birth year is {}.\n'.format(earliest_birth_year)) 
+        print('\nThe earliest birth year is {}.\n'.format(earliest_birth_year))
 
         most_recent_birth_year = df['Birth Year'].max()
-        print('\nThe most recent birth year is {}.\n'.format(most_recent_birth_year)) 
+        print('\nThe most recent birth year is {}.\n'.format(most_recent_birth_year))
 
         most_common_birth_year = df['Birth Year'].mode()[0]
-        print('\nThe most common birth year is {}.\n'.format(most_common_birth_year)) 
+        print('\nThe most common birth year is {}.\n'.format(most_common_birth_year))
 
         print("\nThis took %s seconds." % (time.time() - start_time))
         print('-'*40)
@@ -184,14 +185,14 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df, city)
-        
+
         show_raw_data = input('\nWould you like to see raw data? Enter yes or no.\n')
         raw_data_loc = 0
         while show_raw_data.lower() == 'yes':
             print(df.iloc[raw_data_loc:raw_data_loc + 5])
             raw_data_loc += 5
             show_raw_data = input('\nWould you like to see more raw data? Enter yes or no.\n')
-                        
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
